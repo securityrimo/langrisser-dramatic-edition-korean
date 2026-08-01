@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply the Korean v1.1.1 patch to the verified retail MDF."""
+"""Apply the Korean v1.1.2 patch to the verified retail MDF."""
 
 from __future__ import annotations
 
@@ -13,14 +13,14 @@ import tempfile
 from pathlib import Path
 
 
-PATCH_NAME = "langrisser_de_ko_v1.1.1.ldp"
-PATCH_SHA256 = "d92b3f755d7484433de40458a809d253ad55da8a3d20559e894d226de4af17f3"
+PATCH_NAME = "langrisser_de_ko_v1.1.2.ldp"
+PATCH_SHA256 = "d6ae97fa3295a00456df1be4be82a8497d0c53bce537bf7c4caf29c70d4a8b4a"
 SOURCE_SHA256 = "1a9d479d3238bd1932fe2faee0c2b146c6333127a5b39d83e7d3d81a067505c1"
-TARGET_SHA256 = "43a56fe109a0c7ebfe33d9a0e6eeb0a3db03b6aa65e45ed37d5a60345802d3d2"
+TARGET_SHA256 = "f53effe60eb72fbe3fa9e7e10788bcb7dddae1d7fbe68d60361476bfed4e3d01"
 EXPECTED_SIZE = 682_656_624
-EXPECTED_PATCH_SIZE = 7_517_786
-EXPECTED_RECORD_COUNT = 70_267
-EXPECTED_REPLACEMENT_BYTES = 6_674_252
+EXPECTED_PATCH_SIZE = 7_469_254
+EXPECTED_RECORD_COUNT = 65_848
+EXPECTED_REPLACEMENT_BYTES = 6_678_748
 MDF_SECTOR_SIZE = 2_448
 MAIN_CHANNEL_SIZE = 2_352
 TRACK2_SOURCE_SECTOR = 167_075
@@ -72,7 +72,7 @@ def apply(source: Path, output: Path) -> None:
         if len(manifest_raw) != manifest_length:
             raise ValueError("Truncated LDP1 manifest.")
         manifest = json.loads(manifest_raw.decode("utf-8"))
-        if manifest.get("format") != "LDP1" or manifest.get("version") != "v1.1.1":
+        if manifest.get("format") != "LDP1" or manifest.get("version") != "v1.1.2":
             raise ValueError("Patch format/version metadata mismatch.")
         if manifest.get("source_sha256", "").lower() != SOURCE_SHA256:
             raise ValueError("Patch source metadata mismatch.")
@@ -148,10 +148,10 @@ def apply(source: Path, output: Path) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path, help="verified retail MDF")
-    parser.add_argument("output", type=Path, nargs="?", help="output Korean v1.1.1 MDF")
+    parser.add_argument("output", type=Path, nargs="?", help="output Korean v1.1.2 MDF")
     args = parser.parse_args()
     output = args.output or args.source.with_name(
-        "langDramaticEdition_ko_v1.1.1.mdf"
+        "langDramaticEdition_ko_v1.1.2.mdf"
     )
     try:
         apply(args.source, output)
