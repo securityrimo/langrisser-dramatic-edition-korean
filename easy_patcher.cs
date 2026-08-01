@@ -23,7 +23,7 @@ namespace LangrisserDramaticEasyPatcher
         internal const string PatchFileName = "langrisser_de_ko_v1.1.2.ldp";
         internal const string EmbeddedPatchName = "langrisser_de_ko_v1.1.2.ldp";
         internal const string PatchSha256 =
-            "d6ae97fa3295a00456df1be4be82a8497d0c53bce537bf7c4caf29c70d4a8b4a";
+            "260ae8275ba5ad2a14427864ce07427c3fea94d2815bf51201995dc1b0dcdd18";
         internal const string OutputBaseName = "Langrisser_Dramatic_Edition_Korean_v1.1.2";
         internal const string OutputBinName = OutputBaseName + ".bin";
         internal const string OutputCueName = OutputBaseName + ".cue";
@@ -32,9 +32,9 @@ namespace LangrisserDramaticEasyPatcher
         internal const string SourceSha256 =
             "1a9d479d3238bd1932fe2faee0c2b146c6333127a5b39d83e7d3d81a067505c1";
         internal const string PatchedMdfSha256 =
-            "f53effe60eb72fbe3fa9e7e10788bcb7dddae1d7fbe68d60361476bfed4e3d01";
+            "6b7a3e00e199989a728acd98d79959aa4bb596a3dd4a9966544e3a0a1a7e5bf7";
         internal const string OutputBinSha256 =
-            "50136b39e8d84ad7c646c33175e5d6daf115bae98d22698545357b13e441c6ff";
+            "3d5451365ccf89f1efc0844f585cebb7dc904e57f4c24fecefbf57712d1370d7";
         internal const string Mode1GapSha256 =
             "ab2480bf935e1bd21f6217aa7f689d1017ff9bee87a85c709f5457185c6ed1d8";
         internal const string Mode2GapSha256 =
@@ -49,8 +49,8 @@ namespace LangrisserDramaticEasyPatcher
         internal const int Track3SourceSector = 235445;
         internal const int Track2FileSector = 167225;
         internal const int Track3FileSector = 235745;
-        internal const int ExpectedRecordCount = 65848;
-        internal const long ExpectedReplacementBytes = 6678748L;
+        internal const int ExpectedRecordCount = 65822;
+        internal const long ExpectedReplacementBytes = 6679016L;
         internal const long ExpectedSourceSize = 682656624L;
         internal const long ExpectedOutputSize = 656591376L;
         internal const long MinimumFreeBytes = 800L * 1024L * 1024L;
