@@ -1,4 +1,4 @@
-# 랑그릿사 드라마틱 에디션 한글패치 v1.1.1
+# 랑그릿사 드라마틱 에디션 한글패치 v1.1.2
 
 세가 새턴판 `LANGRISSER Dramatic Edition`용 비공식 한국어 번역 패치입니다.
 게임 원본은 포함하지 않으며, 사용자가 정품에서 직접 만든 일본판 MDF에만 적용됩니다.
@@ -8,12 +8,12 @@
 Python 설치나 명령어 입력은 필요 없습니다.
 
 1. 받은 ZIP을 우클릭하고 **모두 압축 풀기**를 누릅니다.
-2. `랑그릿사_DE_한글패치_v1.1.1.exe`를 실행합니다.
+2. `랑그릿사_DE_한글패치_v1.1.2.exe`를 실행합니다.
 3. 일본판 원본 `.mdf`를 고른 뒤 **한글판 만들기**를 누릅니다.
 
 완료되면 결과 폴더가 자동으로 열립니다. 에뮬레이터에서 다음 파일 하나를 여세요.
 
-`Langrisser_Dramatic_Edition_Korean_v1.1.1.cue`
+`Langrisser_Dramatic_Edition_Korean_v1.1.2.cue`
 
 원본 MDF를 EXE 위로 끌어다 놓아도 됩니다. 원본 파일은 수정하지 않습니다.
 
@@ -37,7 +37,15 @@ Python 설치나 명령어 입력은 필요 없습니다.
 - **예전 글꼴이 보입니다.** 에뮬레이터를 완전히 종료하고 다시 실행한 뒤, 구형 세이브스테이트 대신 게임 내부 세이브를 불러오세요.
 - Windows가 알 수 없는 게시자 경고를 표시하면 GitHub 릴리스의 `SHA256SUMS.txt`와 EXE 해시가 같은지 먼저 확인하세요.
 
-## v1.1.1 주요 내용
+## v1.1.2 주요 내용
+
+- 랑그릿사 I 상점에서 스피드 부츠·크라운 설명을 열면 검은 화면으로 멈추고 세이브까지 사용할 수 없게 되던 문제 수정
+- 같은 32바이트 설명 버퍼를 넘던 랑그릿사(중복 슬롯)·메사이안 소드·어설트 슈트 설명도 함께 교정
+- 표시 수치보다 비정상적으로 강해지던 바리스타 용병을 정상화
+- `소환`, `전투결과`, `Ａ또는Ｂ키를 누르세요`, `SAVE`, `다음 시나리오로` 글꼴·표기 교정
+- v1.1.1의 고스트·레이스 전투 수정과 `시나리오` 글꼴 교정 유지
+
+### v1.1.1 누적 내용
 
 - 시나리오 6의 고스트·레이스가 비정상적으로 피해를 거의 받지 않던 문제 수정
 - `LANG2.BIN`의 안전하지 않은 빈 영역에 설치된 용병 이름 런타임 코드를 제거하고 원본 8×8 출력 경로로 복구
@@ -64,18 +72,20 @@ Python 설치나 명령어 입력은 필요 없습니다.
 
 ## 고급 사용자용 수동 적용
 
-수동 적용용 LDP는 원클릭 ZIP에 포함되지 않으며, GitHub 릴리스의 별도 자산 `langrisser_de_ko_v1.1.1.ldp`로 제공됩니다. 저장소의 `apply_patch.py`, `make_cue_bin.py`와 이 LDP를 같은 폴더에 둔 뒤 Python 3.8 이상에서 실행합니다.
+수동 적용용 LDP는 원클릭 ZIP에 포함되지 않으며, GitHub 릴리스의 별도 자산 `langrisser_de_ko_v1.1.2.ldp`로 제공됩니다. 저장소의 `apply_patch.py`, `make_cue_bin.py`와 이 LDP를 같은 폴더에 둔 뒤 Python 3.8 이상에서 실행합니다.
 
 ```powershell
-python apply_patch.py "D:\경로\langDramaticEdition.mdf" "D:\경로\langDramaticEdition_ko_v1.1.1.mdf"
-python make_cue_bin.py "D:\경로\langDramaticEdition_ko_v1.1.1.mdf" "D:\경로\Langrisser_Dramatic_Edition_Korean_v1.1.1.bin"
+python apply_patch.py "D:\경로\langDramaticEdition.mdf" "D:\경로\langDramaticEdition_ko_v1.1.2.mdf"
+python make_cue_bin.py "D:\경로\langDramaticEdition_ko_v1.1.2.mdf" "D:\경로\Langrisser_Dramatic_Edition_Korean_v1.1.2.bin"
 ```
 
-두 번째 명령이 만드는 `Langrisser_Dramatic_Edition_Korean_v1.1.1.cue`가 권장 MODE2/XA CUE입니다. 일반 사용자는 이 수동 방법을 사용할 필요가 없습니다.
+두 번째 명령이 만드는 `Langrisser_Dramatic_Edition_Korean_v1.1.2.cue`가 권장 MODE2/XA CUE입니다. 일반 사용자는 이 수동 방법을 사용할 필요가 없습니다.
 
 ## 검증 범위와 중요 사항
 
-- v1.1.1의 공식 런타임 검수 환경은 `RetroArch 1.22.2 / Beetle Saturn` 코어이며, 검수한 시나리오 글꼴 수정 MDF/BIN과 릴리스 목표 MDF/BIN은 바이트 단위로 같습니다.
+- v1.1.2의 공식 런타임 검수 환경은 `RetroArch 1.22.2 / Beetle Saturn` 코어입니다.
+- 최종 MDF에서 0번 인게임 세이브의 바리스타 전투가 정상적으로 작동하는 것을 사용자 검수했습니다.
+- 랑그릿사 I의 위 5개 UI 교정은 최종 화면 검수가 남아 있습니다.
 - 고정 RTC와 동일한 인게임 세이브로 고스트 3회 공격 및 레이스 전투를 사용자 검수했으며 두 몬스터가 정상적으로 처치되는 것을 확인했습니다.
 - 상태 파일의 VDP2 PNT와 `LANG2/IMG.DAT`을 대조해 `시나리오`의 `나`가 사용하는 고정 셀을 확정하고, 같은 이미지에 이미 있는 정규 Neo둥근모 `나` 셀로 교체했습니다.
 - **v0.13.17부터 공식 화면 검수는 RetroArch의 Beetle Saturn 코어에서만 수행합니다.** Ymir를 포함한 다른 세가 새턴 에뮬레이터와 실기는 공식 검증 대상이 아니며 호환성을 보장하지 않습니다.

@@ -40,7 +40,7 @@ TRACK3_FILE_SECTOR = 235_745
 
 EXPECTED_MDF_SIZE = MDF_SECTOR_SIZE * SOURCE_SECTORS
 EXPECTED_PATCHED_SHA256 = (
-    "43a56fe109a0c7ebfe33d9a0e6eeb0a3db03b6aa65e45ed37d5a60345802d3d2"
+    "6b7a3e00e199989a728acd98d79959aa4bb596a3dd4a9966544e3a0a1a7e5bf7"
 )
 EXPECTED_MODE1_GAP_SHA256 = (
     "ab2480bf935e1bd21f6217aa7f689d1017ff9bee87a85c709f5457185c6ed1d8"
@@ -49,7 +49,7 @@ EXPECTED_MODE2_GAP_SHA256 = (
     "d70194a7c37bd7044df7a83a42e6bde9e4e1bd89e5484112b74fe6262a43034c"
 )
 EXPECTED_OUTPUT_SHA256 = (
-    "531123bef1efda74b9080422a573ed8298cc777d8894e55efa38de43340c8a7a"
+    "3d5451365ccf89f1efc0844f585cebb7dc904e57f4c24fecefbf57712d1370d7"
 )
 CHUNK_SIZE = 4 * 1024 * 1024
 SYNC = bytes.fromhex("00ffffffffffffffffffff00")
@@ -182,7 +182,7 @@ def convert(
     ]
     if unresolved:
         raise RuntimeError(
-            "The v1.1.1 package MDF SHA-256 value is unresolved: "
+            "The v1.1.2 package MDF SHA-256 value is unresolved: "
             + ", ".join(unresolved)
         )
     if not source.is_file():
@@ -205,7 +205,7 @@ def convert(
     actual_hash = sha256(source)
     if actual_hash.lower() != EXPECTED_PATCHED_SHA256:
         raise ValueError(
-            "This is not the verified v1.1.1 patched MDF.\n"
+            "This is not the verified v1.1.2 patched MDF.\n"
             f"Expected: {EXPECTED_PATCHED_SHA256}\nActual:   {actual_hash}"
         )
 
@@ -318,7 +318,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="Convert the patched MDF to a voice-compatible physical BIN/CUE."
     )
-    parser.add_argument("source", type=Path, help="v1.1.1 patched MDF")
+    parser.add_argument("source", type=Path, help="v1.1.2 patched MDF")
     parser.add_argument("output_bin", type=Path, nargs="?", help="output BIN path")
     args = parser.parse_args()
     output_bin = args.output_bin or args.source.with_suffix(".bin")
